@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CITA_255_Assignment_2.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30,0"
+            Spacing="25">
+            <Grid ColumnDefinitions="*,*" RowDefinitions="Auto,Auto,*,Auto" Padding="10" RowSpacing="10" ColumnSpacing="20">
+                <Label Text="My Week" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HorizontalTextAlignment="Center" FontSize="30"/>
+                <Label Text="Task" Grid.Row="1" Grid.Column="0"/>
+                <Label Text="Hours" Grid.Row="1" Grid.Column="1"/>
+
+                <CollectionView Grid.Row="2" x:Name="TaskCollection" Grid.Column="0">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Label Text="{Binding .}" Padding="10"/>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+                </CollectionView>
+
+                <CollectionView Grid.Row="2" Grid.Column="1" x:Name="AmountOfHours">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Label Text="{Binding .}" Padding="10"/>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+                <VerticalStackLayout Grid.Row="3" Grid.Column="0" Spacing="10" HorizontalOptions="Center">
+                    <Button Text="Press for total hours" Clicked="OnCounterClicked" HorizontalOptions="Center"/>
+                    <Label x:Name="TotalHours" Text="" HorizontalTextAlignment="Center"/>
+                </VerticalStackLayout>
+
+            </Grid>
+               
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
